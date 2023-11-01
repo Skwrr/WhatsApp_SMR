@@ -121,6 +121,11 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+*/.vscode
+*/node_modules
+*/build
+*/assets
+*/package-lock.json
 
 # yarn v2
 .yarn/cache
