@@ -15,7 +15,7 @@ let first = true;
 
 const defIp = {
 	"_comment": "Change the value of `channel` to change groups!",
-	"channel": "clase",
+	"channel": "welcome",
 	"debug": false
 }
 
