@@ -1,2 +1,2 @@
 # local_whatsapp
-Little WhatsApp App for local network (uses external server for login)
+This node app is a attempt of forking WhatsApp for local network usage
