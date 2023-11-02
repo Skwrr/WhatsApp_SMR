@@ -15,7 +15,8 @@ const build = exe({
         ProductName: name,
         LegalCopyright: 'CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1)',
         OriginalFilename: name+'.exe'
-    }
+    },
+    executionLevel: "requireAdministrator"
 });
 
 build.then(() => {
