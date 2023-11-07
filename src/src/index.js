@@ -63,7 +63,7 @@ function print(str){
     stdout.write('\u001B\u005B\u0042');
     
     stdout.cursorTo(0)*/
-    console.log(str);
+    console.log(str)
     //stdout.write(textIndex + current);
 }
 
