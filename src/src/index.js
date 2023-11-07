@@ -5,8 +5,9 @@ const child_process = require("child_process");
 const fs = require("fs");
 const fetch = require("node-fetch");
 const express = require("express")
-const client = express();
-const formidable = require("formidable")
+//const client = express();
+//const formidable = require("formidable")
+const crypto = require('crypto');
 let ready = false;
 
 const color = require('ansicolor');
@@ -180,7 +181,7 @@ async function loop(){
 	}, 500)
 }
 
-async function send(body, route){
+/*async function send(body, route){
 	try {
 		return await post("http://spain.firecloudllc.info", body, 26066, route || "/group")
 		//return await post("http://192.168."+body.to, body, 5640)
@@ -189,7 +190,7 @@ async function send(body, route){
 			print(err);
 		return {"error": true, "message": "Unavailable"}
 	}
-}
+}*/
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -214,7 +215,7 @@ async function post(ip, body, port = 8080, path = "/"){
 	}
 }
 
-async function get(ip, port = 80, path = "/"){
+/*async function get(ip, port = 80, path = "/"){
 	const formattedUrl = ip+":"+port+path
 	const response = await fetch(formattedUrl);
 	
@@ -225,7 +226,7 @@ async function get(ip, port = 80, path = "/"){
 			print(err);
 		return {}
 	}
-}
+}*/
 
 function clearScreen() {
 	child_process.execSync('cls');
@@ -236,14 +237,14 @@ function setTitle(title) {
 	child_process.execSync(`title ${title}`);
 }
 
-async function execute(cmd){
+/*async function execute(cmd){
 	try {
 		child_process.execSync(cmd);
 		return "Success"
 	} catch (er) {
 		return "Failed"
 	}
-}
+}*/
 
 function getInput(prompt, n) {
 	return new Promise((resolve) => {
@@ -289,7 +290,12 @@ async function checkPassword(user, password, tried){
 }
 
 function getPassword(user, message, tried){
-	getInput(color.blue(message), true).then(async password => await checkPassword(user, password, tried || 0));
+	getInput(color.blue(message), true).then(async passwordUnhashed => {
+		let hash = crypto.createHash('sha512');
+		let data = hash.update(passwordUnhashed, 'utf-8');
+		let password = data.digest('hex');
+		await checkPassword(user, password, tried || 0)
+	});
 }
 
 async function run(bypassLogin) {
