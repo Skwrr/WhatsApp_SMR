@@ -30,4 +30,4 @@ If applicable, add screenshots to help explain your problem.
 Add any other context about the problem here.
 
 **Logs file**
-If the app has created a `logs.txt` file, please upload it here
+If the app has created a `crash.txt` file, please upload it here
