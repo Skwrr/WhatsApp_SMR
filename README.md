@@ -4,7 +4,8 @@ WhatsApp SMR is a remake of WhatsApp
 # How to use
 ## Windows
 <ul>
-<li><a>Run the file from the latest release (Note: always check if there is a new version available)</li></a>
+<li><a>Downlaod the .rar file from the releases tab and decompress it</li></a>
+<li><a>Run <b>WhatsApp SMR.exe<b> from the decompressed folder</li></a>
 <li><a>Log in or register and put a group chat name</li></a>
 <li><a>The chat screen will show up</li></a>
 <li><a>Enjoy chatting with your fiends! 😊</li></a>
