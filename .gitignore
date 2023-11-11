@@ -140,4 +140,6 @@ dist
 export.cfg
 export_presets.cfg
 .mono/
+.godot/
+src/.godot
 data_*/

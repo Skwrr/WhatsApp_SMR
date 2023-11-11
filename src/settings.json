@@ -1,6 +1,0 @@
-{
-	"input": "./src/index.js",
-	"outputDir": "./build/",
-	"icon": "./assets/icon.ico",
-	"name": "WhatsApp SMR"
-}

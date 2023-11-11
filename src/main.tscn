@@ -1,0 +1,310 @@
+[gd_scene load_steps=18 format=3 uid="uid://cvkmhtmwc63pt"]
+
+[ext_resource type="Shader" path="res://panel.gdshader" id="1_0p7hn"]
+[ext_resource type="Script" path="res://LoginButton.gd" id="1_ssala"]
+[ext_resource type="Script" path="res://HTTPRequest.gd" id="2_5y1i8"]
+[ext_resource type="Script" path="res://Login.gd" id="2_kh6pm"]
+[ext_resource type="Script" path="res://RichTextLabel.gd" id="4_g5mfe"]
+[ext_resource type="Script" path="res://GroupHistoryHTTP.gd" id="5_la5tc"]
+[ext_resource type="Script" path="res://LastGroupMessageHTTP.gd" id="5_y8brt"]
+[ext_resource type="Script" path="res://EnterSend.gd" id="8_be0xg"]
+[ext_resource type="Script" path="res://Button.gd" id="8_gbf2i"]
+[ext_resource type="Script" path="res://TextSend.gd" id="9_k0yfi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5j0oy"]
+shader = ExtResource("1_0p7hn")
+
+[sub_resource type="SystemFont" id="SystemFont_4gnva"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wij7j"]
+font = SubResource("SystemFont_4gnva")
+font_size = 25
+font_color = Color(0.368627, 0.643137, 1, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_60yyh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ke63"]
+font = SubResource("SystemFont_60yyh")
+font_color = Color(0, 0.556863, 0.556863, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_8dow0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n2pur"]
+font = SubResource("SystemFont_8dow0")
+font_size = 10
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(3, -2)
+
+[node name="Screen" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_5j0oy")
+offset_right = 797.0
+offset_bottom = 502.0
+
+[node name="Login" type="Panel" parent="Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -202.0
+offset_right = 147.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_kh6pm")
+
+[node name="UsernameTitle" type="Label" parent="Screen/Login"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -162.5
+offset_top = 25.0
+offset_right = 162.5
+offset_bottom = 86.0
+grow_horizontal = 2
+text = "Input username"
+label_settings = SubResource("LabelSettings_wij7j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Username" type="LineEdit" parent="Screen/Login/UsernameTitle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.5
+offset_top = 26.5
+offset_right = 114.5
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Username here"
+alignment = 1
+
+[node name="PasswordTitle" type="Label" parent="Screen/Login"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = -88.5
+offset_right = 162.5
+offset_bottom = -27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Input password"
+label_settings = SubResource("LabelSettings_wij7j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Password" type="LineEdit" parent="Screen/Login/PasswordTitle"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -114.5
+offset_top = -4.0
+offset_right = 114.5
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+placeholder_text = "Password here"
+alignment = 1
+secret = true
+
+[node name="GroupTitle" type="Label" parent="Screen/Login"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.5
+offset_top = 1.0
+offset_right = 160.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Input group name"
+label_settings = SubResource("LabelSettings_wij7j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Group" type="LineEdit" parent="Screen/Login/GroupTitle"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -114.5
+offset_top = -4.0
+offset_right = 114.5
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+placeholder_text = "Group name here"
+alignment = 1
+
+[node name="LoginButton" type="Button" parent="Screen/Login"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.5
+offset_top = -92.0
+offset_right = 69.5
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Log in / Sign Up"
+script = ExtResource("1_ssala")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Screen/Login/LoginButton"]
+script = ExtResource("2_5y1i8")
+
+[node name="Alert" type="Panel" parent="Screen/Login"]
+visible = false
+layout_mode = 1
+offset_left = -226.5
+offset_top = -24.0
+offset_right = -26.5
+offset_bottom = 87.0
+
+[node name="Label" type="Label" parent="Screen/Login/Alert"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 111.0
+label_settings = SubResource("LabelSettings_3ke63")
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="Screen/Login"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -17.0
+offset_right = 119.0
+grow_vertical = 0
+text = "Keep me logged in"
+label_settings = SubResource("LabelSettings_n2pur")
+
+[node name="CheckBox" type="CheckBox" parent="Screen/Login/Label"]
+layout_mode = 0
+offset_left = -23.5
+offset_top = -5.0
+offset_right = 0.5
+offset_bottom = 19.0
+
+[node name="Chat" type="Panel" parent="Screen"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -348.0
+offset_top = -216.5
+offset_right = 348.0
+offset_bottom = 216.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="History" type="Panel" parent="Screen/Chat"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.5
+offset_top = -182.0
+offset_right = 292.5
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screen/Chat/History"]
+layout_mode = 0
+offset_right = 586.0
+offset_bottom = 297.0
+bbcode_enabled = true
+scroll_following = true
+script = ExtResource("4_g5mfe")
+
+[node name="LastGroupMessageHTTP" type="HTTPRequest" parent="Screen/Chat/History/RichTextLabel"]
+script = ExtResource("5_y8brt")
+
+[node name="GroupHistoryHTTP" type="HTTPRequest" parent="Screen/Chat/History/RichTextLabel"]
+script = ExtResource("5_la5tc")
+
+[node name="Panel" type="Panel" parent="Screen/Chat"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -293.0
+offset_top = -85.0
+offset_right = 293.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LineEdit" type="LineEdit" parent="Screen/Chat/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -279.0
+offset_top = -15.5
+offset_right = 193.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Enter text to send"
+script = ExtResource("8_be0xg")
+
+[node name="Button" type="Button" parent="Screen/Chat/Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -15.0
+offset_right = -10.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Send"
+script = ExtResource("8_gbf2i")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Screen/Chat/Panel/Button"]
+script = ExtResource("9_k0yfi")
+
+[connection signal="pressed" from="Screen/Login/LoginButton" to="Screen/Login/LoginButton" method="_on_pressed"]
+[connection signal="request_completed" from="Screen/Login/LoginButton/HTTPRequest" to="Screen/Login/LoginButton/HTTPRequest" method="_on_request_completed"]
+[connection signal="request_completed" from="Screen/Chat/History/RichTextLabel/LastGroupMessageHTTP" to="Screen/Chat/History/RichTextLabel/LastGroupMessageHTTP" method="_on_request_completed"]
+[connection signal="request_completed" from="Screen/Chat/History/RichTextLabel/GroupHistoryHTTP" to="Screen/Chat/History/RichTextLabel/GroupHistoryHTTP" method="_on_request_completed"]
+[connection signal="gui_input" from="Screen/Chat/Panel/LineEdit" to="Screen/Chat/Panel/LineEdit" method="_on_gui_input"]
+[connection signal="pressed" from="Screen/Chat/Panel/Button" to="Screen/Chat/Panel/Button" method="_on_pressed"]
+[connection signal="request_completed" from="Screen/Chat/Panel/Button/HTTPRequest" to="Screen/Chat/Panel/Button/HTTPRequest" method="_on_request_completed"]

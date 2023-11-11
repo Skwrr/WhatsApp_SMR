@@ -1,17 +1,20 @@
 # WhatsApp SMR
-This node app is forking of WhatsApp
-
-# How to compile
-To get the app you can download it from the **releases** tab or download this project and run **requirements.bat** to install all the requirements, then run **compile.bat**. The output file will be located at */build*
-You can try the app runing **node src/index.js** to make sure it works perfectly fine before compiling it into an *.exe* file.
+This node app is fork of WhatsApp
 
 # How to use
 <ul>
-<li><a>Run the compiled file from <a href="#how-to-compile">How to compile</a></li></a>
-<li><a>Close it when a new file named _config.json_ is created.</li></a>
-<li><a>Modify the value of __channel__ to change group chat.</li></a>
-<li><a>Now open the app again and login using your username and your password (DM ME IF YOU FORGET IT).</li></a>
+<li><a>Run the file from the latest release (Note: always check if there is a new version available)<li></a>
+<li><a>Log in or register and put a group chat name</li></a>
+<li><a>The chat screen will show up</li></a>
 <li><a>Enjoy chatting with your fiends! 😊</li></a>
+</ul>
+
+# How to clone
+<ul>
+<li>You can clone / download the source of **WhatsApp SMR** clicking the green button *Code* and downloading the zip file.</li>
+<li>Decompress the file and open Godot Engine</li>
+<li>Import the project from *src* folder (src_old is the old project made with node.js)</li>
+<li>And that's it.</li>
 </ul>
 
 # Contact
