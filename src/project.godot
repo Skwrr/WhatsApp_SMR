@@ -32,3 +32,4 @@ run/main_run_args="--rendering-driver opengl3"
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
