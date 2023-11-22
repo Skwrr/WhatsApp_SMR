@@ -291,7 +291,7 @@ async function checkPassword(user, password, tried){
 
 function getPassword(user, message, tried){
 	getInput(color.blue(message), true).then(async passwordUnhashed => {
-		let hash = crypto.createHash('sha512');
+		let hash = crypto.createHash('sha256');
 		let data = hash.update(passwordUnhashed, 'utf-8');
 		let password = data.digest('hex');
 		await checkPassword(user, password, tried || 0)
